@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "noxplayer-win11",
+    "title": "Configuración inicial para instalar NoxPlayer en Windows 11",
+    "date": "2026-02-19",
+    "summary": "Pasos previos para que NoxPlayer arranque en Windows 11: desactivar el hipervisor Hyper-V, el aislamiento del núcleo y Device Guard.",
+    "tags": ["windows", "virtualizacion", "hyper-v", "noxplayer"]
+  }
+]
