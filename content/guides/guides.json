@@ -5,5 +5,12 @@
     "date": "2026-02-19",
     "summary": "Pasos previos para la resolucion de los distintos problemas que puede causar NoxPlayer sobre Windows 11.",
     "tags": ["windows", "virtualizacion", "hyper-v", "noxplayer"]
+  },
+  {
+    "slug": "burpsuite-android",
+    "title": "Intercepting Traffic with Burp Suite on Android",
+    "date": "2026-02-19",
+    "summary": "Pasos previos para la instalacion del certificado de Burpsuite en Android",
+    "tags": ["android", "burpsuite"]
   }
 ]
