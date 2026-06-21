@@ -1,4 +1,4 @@
-
+_____________________
 ## Por qué ocurre el problema
 
 La mayoría de emuladores de Android de escritorio son **hipervisores de tipo 2**: corren _sobre_ Windows y necesitan acceso directo a las extensiones de virtualización del procesador —**Intel VT-x** o **AMD-V**— para ejecutar la máquina virtual con aceleración por hardware.
@@ -7,7 +7,7 @@ El problema es que esas extensiones de CPU **solo puede poseerlas un hipervisor 
 
 ¿Y quién enciende el hipervisor de Windows sin que tú se lo pidas explícitamente? Principalmente la **Seguridad basada en virtualización (VBS, _Virtualization-Based Security_)**, que en Windows 11 viene activada de fábrica en equipos compatibles. VBS es el paraguas que engloba:
 
-|      Tecnología      | <center>Qué hace</center>                                           | <center>Nombre que ves en Windows</center>         |
+|      Tecnología      | Qué hace                                                            | Nombre que ves en Windows                          |
 | :------------------: | ------------------------------------------------------------------- | -------------------------------------------------- |
 |       **HVCI**       | Verifica la integridad del código del kernel dentro de la VM segura | "Integridad de memoria" / "Aislamiento del núcleo" |
 | **Credential Guard** | Aísla las credenciales (LSASS) para frenar ataques _pass-the-hash_  | "Protección de credenciales"                       |
@@ -40,7 +40,7 @@ Antes de tocar nada, averigua el estado real. Esto te ahorra trabajo y te dice q
 - **Seguridad basada en virtualización:** debería decir _En ejecución_ si VBS está activa.
 - **Hipervisor de Windows:** si aparece _Se detectó un hipervisor..._, el hipervisor está consumiendo VT-x.
 
-Opción B - PowerShell:
+**Opción B - PowerShell:**
 
 ```powershell
 PS C:\Users\s1or> Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\DeviceGuard |
@@ -209,39 +209,3 @@ Es decir: no se trata de apagar VT-x, sino de dejar VT-x encendido **y** evitar 
 _____________________
 
 Espero te hallan servido estas recomendaciones, y si no te funcionan, por favor escríbeme directamente a través de mi Linkedln para poder apoyarte!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-## Desactivando el Microsoft-Hyper-V-Hypervisor
-
-```powershell
-PS C:\Users\s1or> Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
-```
-
-![[Pasted image 20260219042816.png]]
-
-## Desactivando el Aislamiento del núcleo
-
-![[Pasted image 20260219042409.png]]
-
-![[Pasted image 20260219042432.png]]
-
-## Deshabilitando DexGuard/DeviceGuard
-
-![[Pasted image 20260219042320.png]]
-
-![[Pasted image 20260219042308.png]]
