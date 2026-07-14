@@ -13,7 +13,7 @@
     // contadores de módulos
     B.ORDER.forEach(function (k, i) {
       var el = document.querySelector('[data-count="' + k + '"]');
-      if (el) el.textContent = groups[i].length + " posts";
+      if (el) el.textContent = groups[i].length + (groups[i].length === 1 ? " post" : " posts");
     });
     // destacados
     var mount = document.getElementById("latest");

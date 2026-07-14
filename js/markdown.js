@@ -33,6 +33,15 @@
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-") || "sec";
   }
+  // Neutraliza esquemas peligrosos (javascript:, data:, vbscript:...) en enlaces
+  // e imágenes. Permite rutas relativas, anclas y esquemas seguros conocidos.
+  var SAFE_SCHEME = /^(https?:|mailto:|tel:)/i;
+  function safeUrl(u) {
+    var v = String(u).trim();
+    // si declara un esquema (algo antes de ":"), solo se aceptan los seguros
+    if (/^[a-z][a-z0-9+.-]*:/i.test(v) && !SAFE_SCHEME.test(v)) return "#";
+    return u;
+  }
 
   /* ---------- resaltado de código (conservador y seguro) ---------- */
   var KEYWORDS = {
@@ -95,12 +104,13 @@
     });
     // 4) imágenes normales ![alt](url)
     text = text.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, function (_, alt, url) {
-      return imgTag(url, alt, alt);
+      return imgTag(safeUrl(url), alt, alt);
     });
     // 5) enlaces [t](u)
     text = text.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, function (_, t, u) {
-      var ext = /^https?:/.test(u) ? ' target="_blank" rel="noopener"' : "";
-      return '<a href="' + u + '"' + ext + ">" + t + "</a>";
+      var href = safeUrl(u);
+      var ext = /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "";
+      return '<a href="' + href + '"' + ext + ">" + t + "</a>";
     });
     // 6) autolinks
     text = text.replace(/(^|[\s(])((?:https?:\/\/)[^\s<)]+)/g, function (_, p, u) {
@@ -231,7 +241,8 @@
              !RE.fence.test(lines[i]) && !RE.quote.test(lines[i]) &&
              !RE.heading.test(lines[i]) && !RE.hr.test(lines[i]) &&
              !RE.ulitem.test(lines[i]) && !RE.olitem.test(lines[i]) &&
-             !RE.indent.test(lines[i])) {
+             !RE.indent.test(lines[i]) &&
+             !(RE.tableRow.test(lines[i]) && i + 1 < lines.length && RE.tableSep.test(lines[i + 1]))) {
         pbuf.push(lines[i]); i++;
       }
       html.push("<p>" + inline(pbuf.join(" ").trim(), ctx) + "</p>");

@@ -1,7 +1,7 @@
 [
   {
     "slug": "noxplayer-win11",
-    "title": "Initial settings for installing NoxPlayer on Windows 11",
+    "title": "Configuraciones iniciales para fallas de NoxPlayer en Windows 11",
     "date": "2026-02-19",
     "summary": "Pasos previos para la resolucion de los distintos problemas que puede causar NoxPlayer sobre Windows 11.",
     "tags": ["windows", "virtualizacion", "hyper-v", "noxplayer"]
