@@ -510,13 +510,6 @@ if (!Settings.canDrawOverlays(this)) {
 
 Enlace de referencia: https://portswigger.net/burp/releases/professional-community-2025-1-5?requestededition=community&requestedplatform=
 
-```embed
-title: "Professional / Community 2025.1.5"
-image: "https://portswigger.net/content/images/logos/portswigger-twittercardlogo.png"
-description: "We’ve upgraded Burp’s browser to Chromium&nbsp;134.0.6998.89 for Windows &amp; Mac and 134.0.6998.88 for Linux. For more information, see the Chromium release notes."
-url: "https://portswigger.net/burp/releases/professional-community-2025-1-5?requestededition=community&requestedplatform="
-```
-
 1. Lo primero será descargarlo desde su pagina oficial.
 
 ![[Pasted image 20250329044721.png]]
@@ -528,13 +521,7 @@ url: "https://portswigger.net/burp/releases/professional-community-2025-1-5?requ
 
 ### Instalación de `Genymotion` en Windows
 
-https://www.genymotion.com/product-desktop/download/
-```embed
-title: "Genymotion Desktop download - Genymotion Android Emulator"
-image: "https://www.genymotion.com/wp-content/uploads/2024/06/Macbook-Pro.png"
-description: "Download Genymotion Desktop for PC & Mac M. Available for Windows 10/11, macOS and Linux (Ubuntu, Debian, Fedora)."
-url: "https://www.genymotion.com/product-desktop/download/"
-```
+Enlace de referencia: https://www.genymotion.com/product-desktop/download/
 
 Simplemente, ejecutamos el `.exe` e instalamos.
 
@@ -547,13 +534,7 @@ Alfinal, deberiamos tener estos programas.
 
 ### Instalación de `ADB` en Windows
 
-https://developer.android.com/tools/releases/platform-tools?hl=es-419
-```embed
-title: "Notas de la versión de las Herramientas de la plataforma del SDK | Android Studio | Android Developers"
-image: "https://developer.android.com/static/images/social/android-developers.png?hl=es-419"
-description: "Las Herramientas de la plataforma del SDK de Android son un componente del SDK de Android."
-url: "https://developer.android.com/tools/releases/platform-tools?hl=es-419"
-```
+Enlace de referencia: https://developer.android.com/tools/releases/platform-tools?hl=es-419
 
 1. Descargamos la herramienta desde su pagina oficial
 
@@ -628,13 +609,7 @@ Y por ultimo le damos el permiso al certificado `chmod 644 9a5ba575.0`
 
 ### Instalación de `APKTools` en Windows
 
-https://apktool.org/docs/install
-```embed
-title: "Install Guide | Apktool"
-image: "https://apktool.org/img/social-card.png"
-description: "A minimum of Java 8 is required to run Apktool."
-url: "https://apktool.org/docs/install"
-```
+Enlace de refencia: https://apktool.org/docs/install
 
 Lo principal, será seguir los pasos uno a uno, como lo dicta la documentación.
 
@@ -665,13 +640,7 @@ Lo principal, será seguir los pasos uno a uno, como lo dicta la documentación.
 
 ### Instalación de `JADX-GUI` en Windows
 
-https://github.com/skylot/jadx/releases
-```embed
-title: "Releases · skylot/jadx"
-image: ""
-description: "Dex to Java decompiler. Contribute to skylot/jadx development by creating an account on GitHub."
-url: "https://github.com/skylot/jadx/releases"
-```
+Enlace de referencia: https://github.com/skylot/jadx/releases
 
 > [!BUG] Importante
 > Tener en cuenta que para poder ejecutar este programa, el ordenador debe tener `JAVA` instalado.
@@ -689,6 +658,7 @@ url: "https://github.com/skylot/jadx/releases"
 ![[Pasted image 20250329010242.png]]
 
 ## Uso de Herramientas
+
 ### Abrir una Shell con `ADB` en Genymotion
 
 Lo primero que debemos tener en cuenta, es que Genymotion ya trae por defecto la herramienta `adb`. Esta se aloja en la siguiente ruta: `C:\Program Files\Genymobile\Genymotion\tools`.
@@ -699,6 +669,7 @@ Lo primero que debemos tener en cuenta, es que Genymotion ya trae por defecto la
 4. Y luego abrir la Shell con el comando `adb shell`
 
 ![[Pasted image 20250329024124.png]]
+
 ### Usando `APKTool`
 
 Para poder descompilar una aplicación, se hace uso del siguiente comando:
@@ -706,6 +677,7 @@ Para poder descompilar una aplicación, se hace uso del siguiente comando:
 	apktool d app.apk
 
 ![[Pasted image 20250329032842.png]]
+
 ### Usando `JADX-GUI`
 
 El uso de este aplicativo es relativamente sencillo, solamente es ejecutar la aplicación, y seleccionar el `app.apk`
