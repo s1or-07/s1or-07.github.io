@@ -8,9 +8,23 @@
   },
   {
     "slug": "burpsuite-android",
-    "title": "Intercepting Traffic with Burp Suite on Android",
+    "title": "Interceptando trafico con burpsuite desde un dispositivo Android",
     "date": "2026-02-19",
     "summary": "Pasos previos para la instalacion del certificado de Burpsuite en Android",
     "tags": ["android", "burpsuite"]
+  },
+  {
+    "slug": "console (TTY) handling",
+    "title": "Tratamiento de consola (TTY) para reverseShell",
+    "date": "2026-02-19",
+    "summary": "Pasos previos para mejorar el uso de una reverseShell",
+    "tags": ["zsh", "reverseShell", "linux"]
+  },
+  {
+    "slug": "Mobile hacking 100",
+    "title": "Mobile Hacking para novatos",
+    "date": "2026-02-19",
+    "summary": "Guia basica sobre Hacking en android.",
+    "tags": ["android", "burpsuite", "tools"]
   }
 ]

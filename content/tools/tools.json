@@ -5,5 +5,12 @@
     "date": "2025-02-05",
     "summary": "Script en Python al estilo Burp Intruder: sustituye un marcador en una plantilla de petición HTTP por cada palabra de un diccionario y analiza las respuestas para detectar accesos válidos.",
     "tags": ["python", "fuzzing", "brute-force", "web", "http"]
+  },
+  {
+    "slug": "Environment-dependent tools",
+    "title": "Herramientas dependientes de un environment",
+    "date": "2025-02-05",
+    "summary": "Este script, automatiza la ejecución de una herramienta que depende de un entorno virtual desde la terminal de la ZSH.",
+    "tags": ["zsh", "linux", "environment"]
   }
 ]
