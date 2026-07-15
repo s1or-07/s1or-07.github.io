@@ -44,11 +44,13 @@ Para explotar esta debilidad, un adversario debe conseguir devolver el código c
 **Ocurre cuando la aplicación no verifica correctamente los permisos de los usuarios, permitiendo que individuos sin autorización accedan a funciones o datos restringidos.​**
 
 Para comprobar la existencia de esquemas de autorización deficientes, los evaluadores pueden realizar ataques binarios contra la aplicación móvil e intentar ejecutar funcionalidades privilegiadas que solo deberían poder ejecutarse con un usuario con privilegios superiores mientras la aplicación móvil se encuentra en modo «sin conexión» (para obtener más información sobre ataques binarios, consulte M9 y M10). Además, los probadores deben intentar ejecutar cualquier funcionalidad privilegiada utilizando un token de sesión de bajo privilegio dentro de las correspondientes solicitudes POST/GET para la funcionalidad sensible al servidor backend. Los esquemas de autorización deficientes o ausentes permiten a un adversario ejecutar funcionalidades a las que no debería tener derecho utilizando un usuario autenticado pero de bajo privilegio de la aplicación móvil. Los requisitos de autorización son más vulnerables cuando las decisiones de autorización se toman dentro del dispositivo móvil en lugar de a través de un servidor remoto. Esto puede ser un requisito debido a los requisitos móviles de usabilidad sin conexión.
+
 #### 🙅‍♀️ Calidad Deficiente del Código Cliente (M7)
 
 **Se refiere a errores de programación o malas prácticas en el código de la aplicación que pueden ser explotados por atacantes para comprometer la seguridad del sistema.​**
 
 Los problemas de calidad del código son bastante frecuentes en la mayoría de los códigos para móviles. La buena noticia es que la mayoría de los problemas de calidad del código son bastante benignos y se deben a malas prácticas de programación. Normalmente es difícil detectar este tipo de problemas mediante la revisión manual del código. En su lugar, los atacantes utilizan herramientas de terceros que realizan análisis estáticos o fuzzing. Este tipo de herramientas suelen identificar fugas de memoria, desbordamientos de búfer y otros problemas menos graves que dan lugar a malas prácticas de programación. Los piratas informáticos con conocimientos y experiencia de muy bajo nivel son capaces de explotar eficazmente este tipo de problemas. El objetivo principal suele ser ejecutar código ajeno en el espacio de direcciones del código móvil.
+
 #### ☠️ Manipulación de Código (M8)
 
 **Implica la alteración no autorizada del código de la aplicación, permitiendo la inserción de funcionalidades maliciosas o la elusión de controles de seguridad establecidos.​**
@@ -56,6 +58,7 @@ Los problemas de calidad del código son bastante frecuentes en la mayoría de l
 Las formas modificadas de las aplicaciones son sorprendentemente más comunes de lo que se piensa. Existe toda una industria de seguridad dedicada a detectar y eliminar versiones no autorizadas de aplicaciones móviles en las tiendas de aplicaciones. Dependiendo del enfoque adoptado para resolver el problema de la detección de la modificación del código, las organizaciones pueden tener formas limitadas o muy exitosas de detectar versiones no autorizadas de código en la naturaleza. Esta categoría abarca el parcheo binario, la modificación de recursos locales, el enganche de métodos, el swizzling de métodos y la modificación de memoria dinámica.
 
 Una vez que la aplicación llega al dispositivo móvil, el código y los recursos de datos residen allí. Un atacante puede modificar directamente el código, cambiar dinámicamente el contenido de la memoria, cambiar o sustituir las API del sistema que utiliza la aplicación, o modificar los datos y recursos de la aplicación. Esto puede proporcionar al atacante un método directo de subvertir el uso previsto del software para beneficio personal o monetario.
+
 #### 🔥 Ingeniería Inversa (M9)
 
 **Consiste en analizar y desensamblar la aplicación para descubrir su funcionamiento interno, lo que puede facilitar la explotación de vulnerabilidades o la copia no autorizada de la propiedad intelectual.​**
@@ -86,6 +89,7 @@ Para garantizar la compatibilidad y seguridad, Google establece niveles de API (
 ![[Pasted image 20250320031041.png]]
 
 Además de las API's nativas de Android, existen servicios como Google Play Services, que ofrecen API's adicionales para funcionalidades como autenticación, servicios de ubicación y acceso a Google Drive. Estas API's permiten integrar características avanzadas en las aplicaciones, mejorando la experiencia del usuario y facilitando la interacción con otros servicios de Google.
+
 ### Arquitectura Android
 
 #### Estructura del sistema operativo Android
@@ -172,6 +176,7 @@ Sus principales funciones incluyen:
 ##### ¿Qué es una APK?
 
 Un **APK (Android Package)** es un archivo comprimido que contiene todos los elementos necesarios para instalar y ejecutar una aplicación en Android. Funciona de manera similar a los archivos **.zip** o **.jar** en otros sistemas. Al descomprimir un APK, encontramos una estructura específica de archivos y directorios.​
+
 ##### Tipos de Aplicaciones
 
 ###### Aplicaciones Nativas
@@ -238,6 +243,7 @@ Son una combinación de las dos anteriores: están desarrolladas con tecnología
 ❌ No son tan rápidas ni eficientes como las nativas.  
 ❌ Dependen de plugins y frameworks para acceder a ciertas funciones del sistema.  
 ❌ La experiencia de usuario puede no ser tan fluida como en una app nativa.
+
 ##### Componentes principales de la aplicación
 
 🔵**Actividades (Activities)**
@@ -266,6 +272,7 @@ Los **receptores de emisiones** son componentes que permiten que las aplicacione
 ##### Estructura de un archivo APK
 
 ![[4.png]]
+
 ###### AndroidManifest.xml
 
 Este archivo esencial declara los componentes de la aplicación y define sus interacciones. Incluye información como los permisos requeridos, las actividades, servicios, receptores y proveedores de contenido presentes en la aplicación.
@@ -359,6 +366,7 @@ Acá un ejemplo breve de un archivo `androidmanifest.xml`
  **📁 Provider (`provider`)**:
 
 - `MiProveedorContenido` gestiona el acceso estructurado a los datos.
+
 ###### Signatures
 
 Las firmas digitales son utilizadas para autenticar la identidad del desarrollador y garantizar la integridad de la aplicación. Cada APK debe estar firmado con una clave privada antes de su distribución. Esta firma permite al sistema verificar que la aplicación no ha sido alterada y que proviene de una fuente confiable. La información de la firma se almacena en el directorio `META-INF` del APK, que incluye:​
@@ -366,23 +374,28 @@ Las firmas digitales son utilizadas para autenticar la identidad del desarrollad
 - **MANIFEST.MF**: Contiene información sobre los archivos incluidos en el APK y sus respectivas sumas de verificación.​
 - **CERT.SF**: Lista los archivos del APK junto con sus sumas de verificación y detalles de la firma.​
 - **CERT.RSA**
+
 ###### Assets
 
 Los activos son archivos que la aplicación utiliza pero que no están estructurados como recursos Android. Se almacenan en el directorio `assets/` dentro del APK y pueden incluir archivos de texto, bases de datos, fuentes, entre otros. A diferencia de los recursos, los activos no son procesados por el sistema Android y se accede a ellos mediante la clase `AssetManager`. Esto permite que los desarrolladores manejen archivos sin procesar de manera flexible.
 ###### Compiled resources
 
 Los recursos compilados son elementos como diseños de interfaz de usuario, cadenas de texto y otros recursos definidos en XML que son procesados y compilados durante el proceso de construcción de la aplicación. Estos recursos se almacenan en el archivo `resources.arsc` dentro del APK y se acceden mediante identificadores generados en la clase `R`. Esta compilación permite una gestión eficiente y una carga rápida de los recursos en tiempo de ejecución. ​
+
 ###### Native Libraries
 
 Las bibliotecas nativas son archivos compilados en código máquina específico de la arquitectura del procesador (por ejemplo, ARM o x86). Se almacenan en el directorio `lib/` del APK, organizado en subdirectorios que corresponden a diferentes arquitecturas de hardware. Estas bibliotecas se desarrollan utilizando el **Android NDK (Native Development Kit)** y se integran en la aplicación para realizar operaciones de bajo nivel o de alto rendimiento. Se accede a ellas mediante la Interfaz de Programación de Aplicaciones Java Native Interface (JNI).
+
 ###### Dalvik bytecode
 
 El bytecode de Dalvik es el formato en el que se compilan las aplicaciones Android antes de su ejecución. Durante el proceso de construcción, el código fuente Java se compila en archivos `.class`, que luego se convierten en archivos `.dex` (Dalvik Executable). Estos archivos `.dex` contienen el código optimizado para la máquina virtual Dalvik o el Android Runtime (ART), permitiendo una ejecución eficiente en dispositivos Android.
+
 ###### Resource
 
 Los recursos son elementos no ejecutables que la aplicación utiliza, como imágenes, cadenas de texto, diseños de interfaz y otros archivos XML. Se almacenan en el directorio `res/` del proyecto y se organizan en subdirectorios según su tipo (por ejemplo, `drawable/` para imágenes, `layout/` para diseños). Durante la construcción, estos recursos se procesan y se incluyen en el APK, permitiendo que la aplicación acceda a ellos de manera eficiente en tiempo de ejecución.
 
 Estos componentes se combinan durante el proceso de construcción para formar el APK (Android Package), que es el archivo instalable en los dispositivos Android. La correcta organización y manejo de estos elementos son fundamentales para el rendimiento, la escalabilidad y la mantenibilidad de las aplicaciones Android.
+
 ##### Sistema de Archivos
 
 ###### **📌 Directorio `/data/app/`**
@@ -495,7 +508,8 @@ if (!Settings.canDrawOverlays(this)) {
 ## Instalación de herramientas
 ### Instalación de `BurpSuite` en Windows
 
-https://portswigger.net/burp/releases/professional-community-2025-1-5?requestededition=community&requestedplatform=
+Enlace de referencia: https://portswigger.net/burp/releases/professional-community-2025-1-5?requestededition=community&requestedplatform=
+
 ```embed
 title: "Professional / Community 2025.1.5"
 image: "https://portswigger.net/content/images/logos/portswigger-twittercardlogo.png"
@@ -553,13 +567,14 @@ url: "https://developer.android.com/tools/releases/platform-tools?hl=es-419"
 
 ![[Pasted image 20250329001455.png]]
 
-3. Luego, copiaremos la ruta en forma de texto y la agregaremos a nuestro `Path`
+4. Luego, copiaremos la ruta en forma de texto y la agregaremos a nuestro `Path`
 
 ![[Pasted image 20250329002123.png]]
 
 Y comprobamos que funciona, abriendo una terminal simple, y escribiendo `adb`.
 
 ![[Pasted image 20250329002317.png]]
+
 ### Instalando Certificado de `BurpSuite`
 
 1. Ejecutamos BurpSuite y nos dirigimos al apartado de `Proxy > Proxy settings`
@@ -647,6 +662,7 @@ Lo principal, será seguir los pasos uno a uno, como lo dicta la documentación.
 5. Y confirmamos que todo esta bien, ejecutando `apktool` en nuestra consola de comandos.
 
 ![[Pasted image 20250329004609.png]]
+
 ### Instalación de `JADX-GUI` en Windows
 
 https://github.com/skylot/jadx/releases
