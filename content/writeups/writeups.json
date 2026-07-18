@@ -6,15 +6,17 @@
     "level": "Easy",
     "source": "HTB",
     "summary": "Desde un código de invitación ofuscado hasta root: enumeración de la API, escalada a admin, command injection en el generador de VPN y CVE de OverlayFS.",
-    "tags": ["WEB", "API", "IDOR", "RCE", "Escalacion de Privilegios"]
-  }
+    "meta": "",
+    "tags": ["WEB", "API", "IDOR", "RCE", "Escalacion de privilegios"]
+  },
   {
     "slug": "sau",
     "title": "HackTheBox: Sau",
     "date": "2024-10-22",
     "level": "Easy",
     "source": "HTB",
-    "summary": "Maquina de HTB",
-    "tags": ["WEB", "LFI", "Escalacion de Privilegios"]
+    "summary": "",
+    "meta": "",
+    "tags": ["WEB", "LFI", "Escalacion de privilegios"]
   }
 ]
