@@ -1,4 +1,4 @@
-Este script es un **fuzzer** que realiza ataques de fuerza bruta a formularios web. **Sustituye una marca específica en la solicitud (`MARKER`) por cada palabra de un diccionario y envía la solicitud modificada al servidor.** Luego, analiza las respuestas para detectar intentos exitosos.
+Este script es un **fuzzer** que realiza ataques de fuerza bruta a formularios web.
 _________
 # Explicacion del codigo
 

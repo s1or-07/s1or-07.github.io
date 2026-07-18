@@ -303,6 +303,13 @@
   function renderList(buf, ctx) {
     var ordered = RE.olitem.test(buf[0]);
     var tag = ordered ? "ol" : "ul";
+    // respetar el número inicial de las listas ordenadas (p. ej. una lista que
+    // arranca en "2." tras cortarse por una imagen/línea en blanco)
+    var startAttr = "";
+    if (ordered) {
+      var sm = buf[0].match(/^[ \t]*(\d+)[.)]/);
+      if (sm && sm[1] !== "1") startAttr = ' start="' + sm[1] + '"';
+    }
     var items = [];
     var cur = null;
     var subBuf = null;
@@ -335,7 +342,7 @@
       }
     }
     flushSub();
-    return "<" + tag + ' class="md-list">' + items.join("") + "</" + tag + ">";
+    return "<" + tag + ' class="md-list"' + startAttr + ">" + items.join("") + "</" + tag + ">";
   }
 
   /* ---------- tablas ---------- */

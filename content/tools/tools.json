@@ -1,9 +1,9 @@
 [
   {
     "slug": "intruder",
-    "title": "intruder.py — Fuzzer HTTP de fuerza bruta",
+    "title": "Simple Intruder.py - Fuzzer HTTP de fuerza bruta sencillo",
     "date": "2025-02-05",
-    "summary": "Script en Python al estilo Burp Intruder: sustituye un marcador en una plantilla de petición HTTP por cada palabra de un diccionario y analiza las respuestas para detectar accesos válidos.",
+    "summary": "Script en Python sencillo al estilo Burp Intruder",
     "tags": ["python", "fuzzing", "brute-force", "web", "http"]
   },
   {
@@ -11,6 +11,13 @@
     "title": "Herramientas dependientes de un environment",
     "date": "2025-02-05",
     "summary": "Este script, automatiza la ejecución de una herramienta que depende de un entorno virtual desde la terminal de la ZSH.",
+    "tags": ["zsh", "linux", "environment"]
+  },
+  {
+    "slug": "PyIntruder",
+    "title": "PyIntruder - Alternativa para BurpSuite",
+    "date": "2025-02-05",
+    "summary": "Fuzzer de peticiones HTTP con interfaz gráfica, inspirado en el módulo Intruder de Burp Suite. Toma una petición HTTP base, inserta payloads en posiciones marcadas con §, envía cada variante y recopila las respuestas para su análisis.",
     "tags": ["zsh", "linux", "environment"]
   }
 ]
