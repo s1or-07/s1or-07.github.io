@@ -1,0 +1,59 @@
+<svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sincronización por último byte">
+<style>
+.s-box{fill:#ffffff;stroke:#e4e4e8;stroke-width:1.5}
+.s-accent{fill:#fff3ee;stroke:#ff6633;stroke-width:1.5}
+.s-dark{fill:#25252b;stroke:#25252b}
+.t{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:12px;fill:#1d1d1f}
+.t-w{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:12px;fill:#ffffff}
+.t-mut{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:10.5px;fill:#6b6b73}
+.t-title{font-family:system-ui,-apple-system,Arial,sans-serif;font-size:12.5px;font-weight:650;fill:#1d1d1f}
+.arrow{stroke:#6b6b73;stroke-width:1.6;fill:none}
+</style>
+<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"/>
+        <defs>
+          <marker id="ah3" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#ff6633"/>
+          </marker>
+        </defs>
+
+        <!-- fase A: envío del grueso (barras de distinta longitud = llegan a distinto tiempo) -->
+        <text class="t-mut" x="20" y="28">fase 1 · envían todo menos 1 byte</text>
+        <!-- barrera -->
+        <line x1="470" y1="44" x2="470" y2="286" stroke="#ff6633" stroke-width="2" stroke-dasharray="5 5"/>
+        <text class="t" x="470" y="308" text-anchor="middle" fill="#e25529">barrera: esperan</text>
+        <text class="t" x="470" y="322" text-anchor="middle" fill="#e25529">a estar todas listas</text>
+
+        <!-- objetivo -->
+        <rect class="s-dark" x="700" y="120" width="96" height="92" rx="12"/>
+        <text class="t-w" x="748" y="152" text-anchor="middle">servidor</text>
+        <text class="t-w" x="748" y="170" text-anchor="middle">objetivo</text>
+        <text class="t-w" x="748" y="192" text-anchor="middle" fill="#ffb38a" font-size="10">recibe casi</text>
+        <text class="t-w" x="748" y="204" text-anchor="middle" fill="#ffb38a" font-size="10">a la vez</text>
+
+        <!-- 3 conexiones -->
+        <!-- conn 1 -->
+        <text class="t-mut" x="20" y="80">conexión #1</text>
+        <rect x="20" y="88" width="380" height="20" rx="5" class="s-accent"/>
+        <text class="t-mut" x="30" y="102">petición sin el último byte</text>
+        <line x1="400" y1="98" x2="470" y2="98" stroke="#6b6b73" stroke-width="1.4" stroke-dasharray="3 4"/>
+        <rect x="470" y="88" width="14" height="20" rx="3" fill="#ff6633"/>
+        <path class="arrow" stroke="#ff6633" d="M486 98 H700" marker-end="url(#ah3)"/>
+
+        <!-- conn 2 (más corta: termina antes y espera) -->
+        <text class="t-mut" x="20" y="152">conexión #2</text>
+        <rect x="20" y="160" width="250" height="20" rx="5" class="s-accent"/>
+        <line x1="270" y1="170" x2="470" y2="170" stroke="#6b6b73" stroke-width="1.4" stroke-dasharray="3 4"/>
+        <rect x="470" y="160" width="14" height="20" rx="3" fill="#ff6633"/>
+        <path class="arrow" stroke="#ff6633" d="M486 170 H700" marker-end="url(#ah3)"/>
+
+        <!-- conn 3 -->
+        <text class="t-mut" x="20" y="224">conexión #3</text>
+        <rect x="20" y="232" width="320" height="20" rx="5" class="s-accent"/>
+        <line x1="340" y1="242" x2="470" y2="242" stroke="#6b6b73" stroke-width="1.4" stroke-dasharray="3 4"/>
+        <rect x="470" y="232" width="14" height="20" rx="3" fill="#ff6633"/>
+        <path class="arrow" stroke="#ff6633" d="M486 242 H700" marker-end="url(#ah3)"/>
+
+        <!-- leyenda último byte -->
+        <rect x="560" y="20" width="12" height="12" rx="2" fill="#ff6633"/>
+        <text class="t-mut" x="580" y="30">= último byte (se suelta a la vez)</text>
+      </svg>

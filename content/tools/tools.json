@@ -18,6 +18,13 @@
     "title": "PyIntruder - Alternativa para BurpSuite",
     "date": "2025-02-05",
     "summary": "Fuzzer de peticiones HTTP con interfaz gráfica, inspirado en el módulo Intruder de Burp Suite. Toma una petición HTTP base, inserta payloads en posiciones marcadas con §, envía cada variante y recopila las respuestas para su análisis.",
-    "tags": ["zsh", "linux", "environment"]
+    "tags": ["hacking", "python", "tools"]
+  },
+  {
+    "slug": "PyRepeater",
+    "title": "PyRepeater - Alternativa para BurpSuite",
+    "date": "2025-02-05",
+    "summary": "Herramienta manual que permite capturar, modificar y reenviar peticiones HTTP o WebSocket tantas veces como sea necesario.",
+    "tags": ["hacking", "python", "tools"]
   }
 ]
