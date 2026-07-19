@@ -19,7 +19,7 @@ Aquí está el porqué de toda la arquitectura. Si intentaras enviar la petició
 
 La solución es mover el envío a un **backend propio**. El navegador solo dibuja la interfaz; cuando pulsas *Send*, manda tu petición a un pequeño servidor local en Python, y **ese** servidor abre el socket hacia el objetivo. Python no tiene CORS ni reescribe tus cabeceras: envía lo que le digas.
 
-![Arquitectura general](img/01-arquitectura.svg)
+![Arquitectura general](img/01-arquitectura.png)
 
 Regla mental para todo lo que sigue: **el navegador nunca habla con el objetivo**. Habla con tu servidor local (`http://127.0.0.1:8777`), y este reenvía. Las cuatro cajas del diagrama —navegador, servidor, motor de envío, objetivo— son la columna vertebral del proyecto.
 
@@ -65,7 +65,7 @@ Con esto ya tienes la petición en piezas manipulables. El resto del programa gi
 
 Este es el recorrido completo desde que pulsas *Send* hasta que ves la respuesta. La mitad izquierda ocurre en el navegador; a partir del paso 3, todo es Python.
 
-![Flujo de una petición](img/02-flujo-peticion.svg)
+![Flujo de una petición](img/02-flujo-peticion.png)
 
 1. **Editas** la petición cruda. `app.js` guarda ese texto en la pestaña activa.
 2. **Se resuelve el destino.** ¿A qué IP y puerto conecto, y con TLS o sin él? Sale del campo *Target*, o de la cabecera `Host` si lo dejas vacío (más sobre esto en §7).
@@ -122,7 +122,7 @@ Esta es la parte que distingue un repeater de juguete de uno serio, y merece ent
 
 **La idea.** Envía de cada petición **todo menos su último byte**. Sin ese byte, el servidor tiene la petición casi entera pero no puede darla por terminada ni procesarla: se queda esperando. Cuando *todas* las conexiones están en ese punto, sueltas el último byte de todas a la vez. El servidor recibe el cierre de todas casi simultáneamente. Los microrretardos de la red ya ocurrieron *antes*, al mandar el grueso; el instante crítico queda limpio.
 
-![Sincronización por último byte](img/03-last-byte-sync.svg)
+![Sincronización por último byte](img/03-last-byte-sync.png)
 
 En código, la coreografía la dirige una `threading.Barrier`. Una barrera para N hilos hace que cada `barrier.wait()` se bloquee hasta que los N han llegado; entonces se liberan todos de golpe. El hilo de cada conexión hace esto:
 
@@ -202,7 +202,7 @@ Pruébalo con `python ejemplo_minimo.py https://example.com`. Eso ya es un repea
 ---
 ## 10. Mapa mental para no perderse
 
-![Mapa de dependencias entre módulos](img/04-mapa-modulos.svg)
+![Mapa de dependencias entre módulos](img/04-mapa-modulos.png)
 
 Si tuvieras que resumir todo el proyecto en cinco frases:
 
