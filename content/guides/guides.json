@@ -26,5 +26,12 @@
     "date": "2026-02-19",
     "summary": "Guia basica sobre Hacking en android.",
     "tags": ["android", "burpsuite"]
+  },
+  {
+    "slug": "Customizacion de kali Linux",
+    "title": "Customizacion de kali Linux",
+    "date": "2026-02-19",
+    "summary": "Guia basica para customizar kali linux con BSPWM",
+    "tags": ["linux", "bspwm", "customize", "python"]
   }
 ]
