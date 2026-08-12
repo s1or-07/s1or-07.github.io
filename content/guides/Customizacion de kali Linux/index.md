@@ -1,4 +1,5 @@
 
+_____________________
 # Proceso de personalización
 ### Actualización del sistema
 
@@ -224,6 +225,7 @@ wget https://github.com/lsd-rs/lsd/releases/download/v1.1.5/lsd_1.1.5_amd64.deb
 sudo dpkg -i bat_0.25.0_amd64.deb
 ```
 
+_____________________
 # scripts de configuración
 ### scripts para el directorio de `bspwm`
 
@@ -379,6 +381,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 > ```
 > 
 
+_____________________
 # comandos de interés
 ### nvim
 
