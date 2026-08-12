@@ -1,4 +1,5 @@
-_____________________
+
+---
 # Proceso de personalización
 ### Actualización del sistema
 
@@ -223,7 +224,8 @@ cd ~/Descargas/
 wget https://github.com/lsd-rs/lsd/releases/download/v1.1.5/lsd_1.1.5_amd64.deb
 sudo dpkg -i bat_0.25.0_amd64.deb
 ```
-_____________________
+
+---
 # scripts de configuración
 ### scripts para el directorio de `bspwm`
 
@@ -378,7 +380,8 @@ _____________________
 > #setopt share_history         # share command history data
 > ```
 > 
-_____________________
+
+---
 # comandos de interés
 ### nvim
 
@@ -437,7 +440,8 @@ sudo impacket-smbserver smbFolder $(pwd) -smb2support -username s1or -password s
 ```shell
 echo '' > ~/.zsh_history
 ```
-_____________________
+
+---
 # herramientas
 ### Docker
 
