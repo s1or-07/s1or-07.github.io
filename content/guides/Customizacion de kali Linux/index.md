@@ -1,6 +1,6 @@
 
 # Proceso de personalización
-## Actualización del sistema
+### Actualización del sistema
 
 Primero se procederá a actualizar el sistema operativo en cuestión:
 
@@ -8,7 +8,7 @@ Primero se procederá a actualizar el sistema operativo en cuestión:
 sudo apt update && sudo apt full-upgrade -y
 ```
 
-## Instalación de Dependencias
+### Instalación de Dependencias
 
 Luego se instalaran las dependencias y herramientas iniciales.
 
@@ -16,7 +16,7 @@ Luego se instalaran las dependencias y herramientas iniciales.
 sudo apt install rofi build-essential git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libxcb-xkb-dev libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev cmake cmake-data pkg-config python3-sphinx libcairo2-dev python3-xcbgen xcb-proto libxcb-xrm-dev libxcb-cursor-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev imagemagick feh libapparmor-dev gawk -y
 ```
 
-## Paquete y estructura de `Blue-skye`
+### Paquete y estructura de `Blue-skye`
 
 Únicamente clonaremos el repositorio
 
@@ -25,7 +25,7 @@ cd ~/Descargas/
 git clone https://github.com/VaughnValle/blue-sky.git
 ```
 
-## Instalación y compilación de `BSPWM`
+### Instalación y compilación de `BSPWM`
 
 Procedemos a clonar el repositorio para `BSPWM`
 
@@ -48,7 +48,7 @@ luego ejecutamos el siguiente comando para asegurarnos que `bspwm` si aparezca u
 sudo cp /usr/local/share/xsessions/bspwm.desktop /usr/share/xsessions/
 ```
 
-## Instalación y compilación de `SXHKD`
+### Instalación y compilación de `SXHKD`
 
 Procedemos a clonar el repositorio para `SXHKD`
 
@@ -65,7 +65,7 @@ make
 sudo make install
 ```
 
-## Creación de carpetas para `bspwm` y `sxhkd`
+### Creación de carpetas para `bspwm` y `sxhkd`
 
 Finalizamos creando sus respectivas carpetas dentro del directorio `~/.config/`
 
@@ -88,7 +88,7 @@ touch bspwm_resize
 chmod +x bspwm_resize
 ```
 
-## Instalación y compilación de `Polybar`
+### Instalación y compilación de `Polybar`
 
 Procedemos a ejecutar el siguiente comando.
 
@@ -103,7 +103,7 @@ cd ~/Descargas/blue-sky
 mv polybar/ ~/.config/
 ```
 
-## Instalación y compilación de `Picom`
+### Instalación y compilación de `Picom`
 
 Procedemos a clonar el repositorio para `Picom`
 
@@ -128,7 +128,7 @@ cd ~/.config/picom
 touch picom.conf
 ```
 
-## Instalamos `Firejial`
+### Instalamos `Firejial`
 
 Procedemos a clonar el repositorio para `firejail`
 
@@ -144,7 +144,7 @@ cd ~/Descargas/firejail
 ./configure && make && sudo make install-strip
 ```
 
-## Descargamos `Kitty`
+### Descargamos `Kitty`
 
 Para esta instalación debemos de crear la carpeta `kitty` en el directorio `/opt/`.
 
@@ -169,7 +169,7 @@ tar -xf kitty-0.43.1-x86_64.txz
 > ```
 > 
 
-## Descarga y compilación de fuentes
+### Descarga y compilación de fuentes
 
 Una vez ya descargadas las fuentes de preferencia, es necesario moverlas a 4 direcciones especificas y reiniciamos el cache.
 
@@ -181,7 +181,7 @@ sudo cp * /usr/share/fonts/truetype && fc-cache -v
 sudo cp * ~/.config/polybar/fonts/ && fc-cache -v
 ```
 
-## Descarga e instalación de la `PowerLVL10k`
+### Descarga e instalación de la `PowerLVL10k`
 
 Primero clonaremos el repositorio, tanto en el usuario local como en el root.
 
@@ -204,7 +204,7 @@ luego ejecutamos el siguiente comando.
 echo -e "\n# Powerlvl10k\n# -----------------------------------------\nsource ~/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc
 ```
 
-## Descarga e Instalación de `BAT`
+### Descarga e Instalación de `BAT`
 
 Clonaremos el repositorio `bat` y descompilamos
 
@@ -214,7 +214,7 @@ wget https://github.com/sharkdp/bat/releases/download/v0.25.0/bat_0.25.0_amd64.d
 sudo dpkg -i bat_0.25.0_amd64.deb
 ```
 
-## Descarga e Instalación de `LSD`
+### Descarga e Instalación de `LSD`
 
 Clonaremos el repositorio `lsd` y descompilamos
 
@@ -225,7 +225,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 ```
 
 # scripts de configuración
-## scripts para el directorio de `bspwm`
+### scripts para el directorio de `bspwm`
 
 > [!TIP] Los siguientes archivos deben estar alojados en el directorio `~/.config/bspwm/script/` y deben tener permisos de ejecución `+x`.
 > ###### bspwm_resize
@@ -249,7 +249,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 > ```
 > 
 
-## scripts para el directorio de `polybar`
+### scripts para el directorio de `polybar`
 
 
 > [!WARNING] Los siguientes archivos deben estar alojados en el directorio `~/.config/polybar/scripts/` y deben tener permisos de ejecución `+x`.
@@ -291,7 +291,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 > ```
 > 
 
-## errores comunes
+### errores comunes
 
 > [!BUG] Insecurete files in root
 > zsh compinit: insecure files, run compaudit for list.
@@ -308,7 +308,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 > $ chown root:root /usr/local/share/zsh/site-functions/_bspc
 > ```
 
-## funcionalidades de la terminal
+### funcionalidades de la terminal
 
 > [!TIP] los siguientes scripts deben estar alojados dentro del archivo `.zshrc`
 > ###### comandos `settarget`, `cleartarget`, `extractPorts`
@@ -380,7 +380,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 > 
 
 # comandos de interés
-## nvim
+### nvim
 
 | SHORCUT               | DESCRIPTION         |
 | --------------------- | ------------------- |
@@ -389,7 +389,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 | `Esc + Space + f + f` | Buscar por archivo  |
 | `Esc + Space + C + H` | CheatSheet          |
 
-## kitty
+### kitty
 
 | SHORTCUT                    | DESCRIPTION                                                                                                         |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -404,7 +404,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 | `alt + u`                   | para retroceder una acciona en un archivo                                                                           |
 | `ctrl + r`                  | mientras estas escribiendo un comando, tocar este shorcut para ver el historial de comandos usados con anterioridad |
 | `ctrl + shift + L`          | Sirve para cambiar la forma en la que estar organizadas las ventanas (horizontal a vertical)                        |
-## sytem
+### sytem
 
 | SHORCUT                                   | DESCRIPTION                                              |
 | ----------------------------------------- | -------------------------------------------------------- |
@@ -428,7 +428,7 @@ sudo dpkg -i bat_0.25.0_amd64.deb
 | `super + shift + left,right,up,down`      | Cambiar de posición de la ventana con la de al lado      |
 | `alt + .`                                 | coger la ultima palabra del comando anterior             |
 
-## smbserver
+### smbserver
 
 ```shell
 sudo impacket-smbserver smbFolder $(pwd) -smb2support -username s1or -password s1or
@@ -439,7 +439,7 @@ echo '' > ~/.zsh_history
 ```
 
 # herramientas
-## Docker
+### Docker
 
 Ejecute el siguiente comando para desinstalar todos los paquetes en conflicto:
 
@@ -468,7 +468,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo systemctl status docker
 ```
 
-## BloodHound
+### BloodHound
 
 Descargue la última versión de `BloodHound CLI` para su sistema operativo y arquitectura (AMD o ARM)
 
